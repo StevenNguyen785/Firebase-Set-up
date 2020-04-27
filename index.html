@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, intial-scale=1, shrink-to-fit=no">
-  <title>Messages From the Sink</title>
+  <title>Messages Send</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
   <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
@@ -18,6 +18,19 @@
 </head>
 
 <body>
+  <h3>Messages from the Sink</h3>
+
+  <div class="" id="sendDiv">
+    <textarea id="messageInput" name="name" rows="10" cols="100" placeholder="type message here"></textarea>
+    <button id="sendMessageBtn" type="button" name="button">Send Message</button>
+  </div>
+
+  <div class="hidden" id="receiveDiv">
+    <button id="receiveMessageBtn" type="button" name="button">Receive Message</button>
+    <p id="receivedMessage"</p>
+    <button id="sendAgainBtn" class="hidden" type="button" name="button">send another message</button>
+  </div>
+
   <script src="sketch.js"></script>
   <script src="Firebase.js"></script>
 
