@@ -105,7 +105,11 @@ function sendMessage() {
 
 function receiveMessage() {
 
+  // shuffle array first
+  shuffleArray(fbDataArray);
+
   for (let i = 0; i < fbDataArray.length; i++) {
+
     if (fbDataArray[i].received === false) {
       // console.log("received message:");
       // console.log(fbDataArray[i].messageText);
@@ -131,10 +135,30 @@ function receiveMessage() {
 }
 
 function sendAgain(){
+  // reset receive div
+  receivedMessage.innerHTML = "";
+  receiveMessageBtn.style.display = 'block';
+  sendAgainBtn.style.display = 'none';
+
+  // return to beginning
   receiveDiv.style.display = 'none';
   sendDiv.style.display = 'block';
+}
 
-  sendAgainBtn.style.display = 'block';
-  console.log ("buttonpressed");
-  receiveMessageBtn.style.display = 'none';
+function shuffleArray(_array){
+  // iterate backwards through an array
+for (let i = _array.length - 1; i > 0; i--) {
+
+  // grab random index from 0 to i
+  let randomIndex = Math.floor(Math.random() * (i + 1));
+
+  // swap elements _array[i] and _array[j]
+  [_array[i], _array[randomIndex]] = [_array[randomIndex], _array[i]]; // using "destructuring assignment" syntax
+
+  // same can be written as:
+  // let _arrayItem = _array[i]; // _array item in original position _array[i]
+  // _array[i] = _array[randomIndex]; // overwrite _array[i] with new item at random index
+  // _array[randomIndex] = _arrayItem; // now move _array item from original position into random position
+
+}
 }
