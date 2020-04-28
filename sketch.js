@@ -25,13 +25,13 @@ function setup() {
   receiveMessageBtn = document.querySelector("#receiveMessageBtn");
   receivedMessage = document.querySelector("#receivedMessage");
   sendAgainBtn = document.querySelector("#sendAgainBtn");
-  receiveDiv = document.querySelector("#recieveDiv");
+  receiveDiv = document.querySelector("#receiveDiv");
   sendDiv = document.querySelector("#sendDiv");
 
 
   sendMessageBtn.addEventListener('click', sendMessage);
   receiveMessageBtn.addEventListener('click', receiveMessage);
-  sendAgainBtn.addEventListener('click', sendAgainBtn);
+  sendAgainBtn.addEventListener('click', sendAgain);
 
   //Initialize firebase
   // support for Firebase Realtime Database 4 web here: https://firebase
@@ -90,7 +90,7 @@ function sendMessage() {
     console.log("sent message:");
     console.log(nodeData);
 
-    createP(`sent message: ${nodeData.messageText}`);
+    // createP(`sent message: ${nodeData.messageText}`);
 
     // zero out text area
     messageInput.value = ''
@@ -133,4 +133,8 @@ function receiveMessage() {
 function sendAgain(){
   receiveDiv.style.display = 'none';
   sendDiv.style.display = 'block';
+
+  sendAgainBtn.style.display = 'block';
+  console.log ("buttonpressed");
+  receiveMessageBtn.style.display = 'none';
 }
